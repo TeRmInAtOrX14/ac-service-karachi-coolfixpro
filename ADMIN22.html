@@ -2936,7 +2936,20 @@
 
     function doFaq(btn) { const item = btn.closest('.faq-item'); const open = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open')); if (!open) item.classList.add('open'); }
     function pickSlot(el) { document.querySelectorAll('.slot').forEach(s => s.classList.remove('on')); el.classList.add('on'); }
-    function pickPkg(pkg) { const sel = document.getElementById('bservice'); for (let o of sel.options) { if (o.text === pkg || o.value === pkg) { sel.value = o.value; break; } } }
+    function pickPkg(pkg) {
+      const sel = document.getElementById('bservice');
+      for (let o of sel.options) {
+        if (o.text === pkg || o.value === pkg) { sel.value = o.value; break; }
+      }
+      // Scroll to booking form
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      // Flash highlight the dropdown so user sees the package was selected
+      setTimeout(() => {
+        sel.style.transition = 'box-shadow 0.3s ease';
+        sel.style.boxShadow = '0 0 0 4px rgba(34,114,195,0.4)';
+        setTimeout(() => { sel.style.boxShadow = ''; }, 1500);
+      }, 700);
+    }
 
     document.addEventListener('DOMContentLoaded', () => {
       const d = document.getElementById('bdate'); if (d) d.min = new Date().toISOString().split('T')[0];
