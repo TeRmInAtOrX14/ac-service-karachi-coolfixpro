@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://terminatorx14.github.io/god/sitemap.xml
+Sitemap: https://terminatorx14.github.io/ac-service-karachi-coolfixpro/sitemap.xml
